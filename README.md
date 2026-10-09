@@ -4,6 +4,8 @@
 
 `Erdos67.lean` defines the exact arbitrary-sign-sequence, unbounded homogeneous arithmetic progression discrepancy statement. It proves that restricting the thresholds to natural numbers is equivalent to using all positive real thresholds. That equivalence proves neither discrepancy assertion. There is no `Solution.lean` proving the full problem.
 
+`Erdos67/Compactness.lean` supplies the next exact reduction: for every bound B there is a finite horizon N that works for every sign sequence if and only if the original theorem holds. The horizon is selected before the sequence, using a finite subcover of the compact sign-sequence space. This equivalence leaves the existence of those finite bounds unproved. See [the dependency audit](PROOF_STATUS.md) for the remaining full-proof obligations.
+
 ## Mathematical source
 
 The full mathematical result is Terence Tao, *The Erdős discrepancy problem*, Discrete Analysis 2016:1, DOI 10.19086/da.609, Corollary 1.2 ([arXiv](https://arxiv.org/html/1509.05363v6)). The target is also recorded at [Erdős Problem 67](https://www.erdosproblems.com/67). No claim of mathematical novelty is made.
@@ -15,6 +17,7 @@ The full mathematical result is Terence Tao, *The Erdős discrepancy problem*, D
 - Local elaboration of the identical `Erdos67.lean` succeeded with exit 0 and no diagnostics in an existing checkout using those pins.
 - The threshold equivalence passed an independent AI agent's mathematical and source-fidelity audit. This is not human expert review.
 - Local `#print axioms` reported `[propext, Classical.choice, Quot.sound]` for the equivalence. The output is in `verification/axioms.txt`.
+- The compactness equivalences also compiled locally with those three axiom dependencies and passed a separate AI agent's mathematical review.
 - The development has no proof holes, custom mathematical axioms, or `native_decide`. The full target remains an unproved proposition definition.
 - GitHub CI builds this standalone package and prints the equivalence's axiom dependencies. Its result must be checked separately; local verification does not imply CI success.
 
@@ -22,7 +25,7 @@ Reproduce:
 
 ```sh
 lake exe cache get
-lake build
+lake build Erdos67 Erdos67.Compactness
 lake env lean CheckAxioms.lean
 ```
 
