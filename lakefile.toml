@@ -1,0 +1,12 @@
+name = "erdos67"
+version = "0.1.0"
+defaultTargets = ["Erdos67"]
+
+[[lean_lib]]
+name = "Erdos67"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.33.1"
