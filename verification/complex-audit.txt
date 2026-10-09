@@ -1,0 +1,27 @@
+Date: 2026-10-09
+Final outcome: INCOMPLETE (full real and complex discrepancy proofs missing).
+Baseline: AItoBit/erdos67-lean 7a8f698fb9e5ea525386a9130b8e379c703936ee.
+Local branch: codex/erdos67-complex-audit; unpublished changes.
+Lean: leanprover/lean4:v4.35.0-rc2.
+Mathlib: 065356127b1dc0016f66b7283ce0ce2c4055aa55.
+
+Build: lake build Erdos67 Erdos67.Compactness Erdos67.FiniteBound Erdos67.Complex
+Exit: 0; no warnings; see complex-build.txt.
+Axiom inspection: lake env lean CheckAxioms.lean
+Exit: 0; all six printed theorems use only propext, Classical.choice, Quot.sound.
+See complex-axioms.txt for actual output.
+Project Lean-source prohibited-token scan: no sorry, admit, custom axiom, unsafe, native_decide.
+git diff --check: passed (Git line-ending conversion notices only).
+
+Independent mathematical auditor: /root/erdos67_audit; PASS for source fidelity and bridge arguments.
+Final Complex.lean SHA256: 92EA755EF900987233B68B145E9FAE33BF20E0C9AAEEFD0B77BE36C4E942E429.
+Distinct proof agent: /root/erdos67_search; direct elaboration exit0, no diagnostics.
+Exact real-subtype and complex-sphere targets are FROZEN after independent audit and elaboration.
+Bridge theorems are kernel checked and independently mathematically audited.
+Neither full target is a proved theorem. Complex discrepancy is an explicit bridge hypothesis.
+
+Migration replaced deprecated Mathlib.Data.Real.Basic with Mathlib.Basic.Real.Basic.
+Initial failed compilation is retained in complex-build-initial.txt.
+Targeted cache fetched414 files but returned exit1 for an AppControl error on an already-cached file.
+The subsequent actual module build and axiom inspection both passed; cache exit is not counted as verification.
+No Palomar Comparator/full preflight or intake run performed for this incomplete development.

@@ -2,6 +2,8 @@
 
 Status checked on 2026-10-09. **The full Erdős discrepancy theorem is not proved in this repository.** The mathematical theorem is established in the literature. Failure to construct its Lean proof here does not make the mathematical problem open.
 
+Packaging update: the repository now contains a Challenge/Solution pair for six proved **partial results**, described in README.md. This historical full-proof audit concerns the missing stronger target. The partial-result package does not change that status; CI records its separate Palomar mechanical preflight.
+
 ## Analytic route
 
 The exact target is `Erdos67.DiscrepancyStatement`. Tao's [paper](https://arxiv.org/html/1509.05363v6) proves its mathematical counterpart as Corollary 1.2. An implementation of that route needs the following steps.
@@ -55,4 +57,4 @@ The machine-readable `research/knowledge-graph.json` distinguishes these conditi
 
 The new `discrepancyStatement_iff_uniformFiniteStatement` dependency identifies the exact finite target without assuming its truth. It has passed independent mathematical review: compactness gives a finite cover, then the largest endpoint d*m supplies a horizon chosen independently of the sequence. Local compilation of the root declarations together with this proof succeeded with exit 0 and no warnings. Both new equivalences depend only on `[propext, Classical.choice, Quot.sound]`. The clean module build and axiom checks also run in GitHub CI.
 
-There is no complete candidate `Solution.lean`. No full Palomar mechanical preflight or intake has been performed. The successful repository CI verifies only the declarations actually implemented. The full original target has not changed.
+There is no complete candidate proof of the full target. `Solution.lean` now imports only the six partial results listed in `comparator.json`. Palomar's complete mechanical workflow for that smaller scope is configured in CI. Its reports apply only to the compared declarations, and the full original target remains unproved.

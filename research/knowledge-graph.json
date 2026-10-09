@@ -28,7 +28,11 @@
       "claim": "The positive real threshold target is equivalent to using all natural thresholds",
       "status": "kernel_verified",
       "declaration": "Erdos67.discrepancyStatement_iff_naturalThresholdStatement",
-      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
       "audit": "Independent AI mathematical audit passed"
     },
     {
@@ -36,7 +40,11 @@
       "claim": "The full target is equivalent to a finite horizon N for each bound B, uniform over every sign sequence",
       "status": "kernel_verified",
       "declaration": "Erdos67.discrepancyStatement_iff_uniformFiniteStatement",
-      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
       "audit": "Independent AI mathematical audit passed",
       "ci": "https://github.com/AItoBit/erdos67-lean/actions/runs/37915520112"
     },
@@ -52,7 +60,11 @@
       "claim": "Every sign assignment on 1 through 12 has a homogeneous progression sum with absolute value greater than 1",
       "status": "kernel_verified",
       "declaration": "Erdos67.discrepancy_one_at_twelve",
-      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
       "audit": "Independent AI mathematical audit passed; actual module and explicit axiom check exited 0",
       "verification": "verification/finite-bound-result.txt",
       "evidence": "research/bound-one-results.json",
@@ -72,7 +84,10 @@
       "mathematical_status": "literature_result",
       "lean_status": "unproved_obligation",
       "source": "https://arxiv.org/html/1509.05363v6#S2",
-      "available_foundations": ["finite character orthogonality", "Prokhorov compactness"],
+      "available_foundations": [
+        "finite character orthogonality",
+        "Prokhorov compactness"
+      ],
       "missing": "The specific Fourier construction, bounds, and limit transfer"
     },
     {
@@ -141,24 +156,105 @@
       "claim": "A discrepancy theorem for arbitrary translated progressions directly proves the homogeneous-progression theorem",
       "status": "rejected_route",
       "lesson": "General translated progressions are not homogeneous; their starting point need not be divisible by the step"
+    },
+    {
+      "id": "complex_target",
+      "claim": "Every complex unit-circle sequence has unbounded homogeneous progression discrepancy",
+      "mathematical_status": "literature_result",
+      "lean_status": "unproved_obligation",
+      "declaration": "Erdos67.ComplexDiscrepancyStatement",
+      "source": "https://arxiv.org/html/1509.05363v6",
+      "audit": "FROZEN: independent fidelity audit and elaboration passed; full proof missing"
+    },
+    {
+      "id": "complex_real_representation_bridges",
+      "claim": "Complex discrepancy implies real discrepancy, and real subtype encoding is equivalent to integer signs",
+      "status": "kernel_verified",
+      "module": "Erdos67.Complex",
+      "audit": "Independent mathematical audit passed; compilation0; standard three axioms only; see verification/complex-audit.txt"
     }
   ],
   "edges": [
-    {"from": "natural_threshold_equivalence", "to": "compactness_equivalence", "relation": "uses", "direction_note": "The destination uses the source"},
-    {"from": "compactness_equivalence", "to": "full_target", "relation": "supports"},
-    {"from": "uniform_finite_target", "to": "full_target", "relation": "supports"},
-    {"from": "bound_one_length_twelve", "to": "uniform_finite_target", "relation": "supports", "scope": "B=1 only"},
-    {"from": "bound_one_length_eleven", "to": "bound_one_length_twelve", "relation": "supports", "scope": "Finite horizon sharpness at B=1"},
-    {"from": "elliott_input", "to": "pretentious_reduction", "relation": "uses", "direction_note": "The destination uses the source"},
-    {"from": "pretentious_reduction", "to": "structured_contradiction", "relation": "uses", "direction_note": "The destination uses the source"},
-    {"from": "fourier_reduction", "to": "full_target", "relation": "supports", "route": "analytic"},
-    {"from": "structured_contradiction", "to": "full_target", "relation": "supports", "route": "analytic"},
-    {"from": "all_quadratic_certificates", "to": "uniform_finite_target", "relation": "supports", "route": "certificates"},
-    {"from": "ordinary_elliott_candidate", "to": "nonpretentious_event_null", "relation": "supports", "scope": "Conditional on verification and the stochastic boundedness assumptions"}
+    {
+      "from": "natural_threshold_equivalence",
+      "to": "compactness_equivalence",
+      "relation": "uses",
+      "direction_note": "The destination uses the source"
+    },
+    {
+      "from": "compactness_equivalence",
+      "to": "full_target",
+      "relation": "supports"
+    },
+    {
+      "from": "uniform_finite_target",
+      "to": "full_target",
+      "relation": "supports"
+    },
+    {
+      "from": "bound_one_length_twelve",
+      "to": "uniform_finite_target",
+      "relation": "supports",
+      "scope": "B=1 only"
+    },
+    {
+      "from": "bound_one_length_eleven",
+      "to": "bound_one_length_twelve",
+      "relation": "supports",
+      "scope": "Finite horizon sharpness at B=1"
+    },
+    {
+      "from": "elliott_input",
+      "to": "pretentious_reduction",
+      "relation": "uses",
+      "direction_note": "The destination uses the source"
+    },
+    {
+      "from": "pretentious_reduction",
+      "to": "structured_contradiction",
+      "relation": "uses",
+      "direction_note": "The destination uses the source"
+    },
+    {
+      "from": "fourier_reduction",
+      "to": "full_target",
+      "relation": "supports",
+      "route": "analytic"
+    },
+    {
+      "from": "structured_contradiction",
+      "to": "full_target",
+      "relation": "supports",
+      "route": "analytic"
+    },
+    {
+      "from": "all_quadratic_certificates",
+      "to": "uniform_finite_target",
+      "relation": "supports",
+      "route": "certificates"
+    },
+    {
+      "from": "ordinary_elliott_candidate",
+      "to": "nonpretentious_event_null",
+      "relation": "supports",
+      "scope": "Conditional on verification and the stochastic boundedness assumptions"
+    }
   ],
   "frontier": [
-    {"node": "ordinary_elliott_candidate", "next_action": "Audit dependency closure and finite quantitative lemmas; a fixed-function asymptotic theorem alone leaves the scale-uniformity gap", "role": "New analytic reuse candidate, not a verified input"},
-    {"node": "elliott_input", "next_action": "Search for a precise reusable formal proof, otherwise construct its prerequisites", "role": "Central analytic dependency"},
-    {"node": "all_quadratic_certificates", "next_action": "Find a justified universal family or existence argument", "role": "Alternative full-proof route"}
+    {
+      "node": "ordinary_elliott_candidate",
+      "next_action": "Audit dependency closure and finite quantitative lemmas; a fixed-function asymptotic theorem alone leaves the scale-uniformity gap",
+      "role": "New analytic reuse candidate, not a verified input"
+    },
+    {
+      "node": "elliott_input",
+      "next_action": "Search for a precise reusable formal proof, otherwise construct its prerequisites",
+      "role": "Central analytic dependency"
+    },
+    {
+      "node": "all_quadratic_certificates",
+      "next_action": "Find a justified universal family or existence argument",
+      "role": "Alternative full-proof route"
+    }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Erdos67.discrepancyStatement_iff_naturalThresholdStatement",
+    "Erdos67.discrepancyStatement_iff_uniformFiniteStatement",
+    "Erdos67.discrepancy_one_at_twelve",
+    "Erdos67.realSubtypeDiscrepancyStatement_of_complexDiscrepancyStatement",
+    "Erdos67.realSubtypeDiscrepancyStatement_iff_discrepancyStatement",
+    "Erdos67.discrepancyStatement_of_complexDiscrepancyStatement"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "enable_nanoda": true
+}

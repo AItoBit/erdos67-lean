@@ -2,7 +2,11 @@ module
 
 import Erdos67.Compactness
 import Erdos67.FiniteBound
+import Erdos67.Complex
 
 #print axioms Erdos67.discrepancyStatement_iff_naturalThresholdStatement
 #print axioms Erdos67.discrepancyStatement_iff_uniformFiniteStatement
 #print axioms Erdos67.discrepancy_one_at_twelve
+#print axioms Erdos67.realSubtypeDiscrepancyStatement_of_complexDiscrepancyStatement
+#print axioms Erdos67.realSubtypeDiscrepancyStatement_iff_discrepancyStatement
+#print axioms Erdos67.discrepancyStatement_of_complexDiscrepancyStatement

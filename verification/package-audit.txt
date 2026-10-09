@@ -1,0 +1,22 @@
+Partial-result packaging audit: 2026-10-09
+
+Scope: exactly six partial-result theorems in comparator.json.
+The full real and complex discrepancy targets remain unproved definitions.
+The complex-to-real implications have an explicit complex-discrepancy hypothesis.
+
+Local build command: lake build Challenge Solution
+Exit: 0. Six expected Challenge-only sorry warnings; no Solution warning.
+Axiom command: lake env lean CheckAxioms.lean
+Exit: 0. All six compared theorems use only propext, Classical.choice, Quot.sound.
+Metadata: validated against upstream formalization.yaml v0.4 JSON schema.
+Independent AI auditor: /root/erdos67_audit.
+Fidelity: all seven Challenge definitions and six theorem signatures match
+the actual declarations imported by Solution; all quantifiers preserved.
+Finite proof audited mathematically using pair cancellation and sum along 3,6,9,12.
+README and metadata explicitly label partial scope and known mathematical content.
+The source example number differs between preprint and published versions;
+the citation uses Section 2, finite discrepancy-one example, without renumbering.
+
+This local audit is not a Palomar mechanical report or editorial acceptance.
+Full preflight is configured in .github/workflows/preflight.yml; its artifact
+identifies the exact repository commit checked by Comparator and NanoDa.

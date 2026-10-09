@@ -1,0 +1,108 @@
+version: "v0.4"
+project:
+  name: "Erdős 67: finite discrepancy and compactness reductions"
+  description: >-
+    Every sign sequence has a homogeneous arithmetic progression ending at
+    or before 12 whose sum has absolute value greater than 1. The development
+    proves that unbounded discrepancy is equivalent to a finite horizon for
+    each threshold, uniform over all sign sequences, and verifies natural
+    threshold and real-sign representation equivalences. A complex-to-real
+    implication explicitly assumes the complex discrepancy statement. These
+    are partial results; the full Erdős discrepancy theorem is not proved.
+  authors: ["alexander"]
+  responsible_maintainers: ["alexander"]
+  license: Apache-2.0
+classification:
+  arxiv: [math.NT, math.CO]
+  msc2020: ["11K38", "05D10"]
+sources:
+  - title: "The Erdős discrepancy problem"
+    authors: ["Terence Tao"]
+    type: article
+    id: "doi:10.19086/da.609; arXiv:1509.05363v6"
+    relationship: background
+    note: >-
+      Discrete Analysis 2016:1. Theorem 1.1 and Corollary 1.2 establish the full
+      mathematical discrepancy theorem. This repository does not formalize
+      Tao's analytic proof; it proves elementary finite and representation
+      results surrounding that target.
+    author_endorsement: not-contacted
+  - title: "Erdős Problem 67"
+    authors: ["Thomas F. Bloom"]
+    contributors:
+      - name: "Paul Erdős"
+        role: "problem proposer"
+    type: web discussion
+    id: "https://www.erdosproblems.com/67"
+    relationship: background
+    note: >-
+      The problem statement was supplied as a PDF printout. Positive step and
+      length and inclusive progression endpoints follow the supplied Lean
+      target and Tao's standard statement. The pasted hyperlink to problem
+      66 was corrected.
+    author_endorsement: not-contacted
+  - title: "Computer-Aided Proof of Erdős Discrepancy Properties"
+    authors: ["Boris Konev", "Alexei Lisitsa"]
+    type: article
+    id: "https://arxiv.org/abs/1405.3097"
+    location: "Section 2, finite discrepancy-one example (the obstruction at length 12)"
+    relationship: independently-proves
+    note: >-
+      Artificial Intelligence 224 (2015), 103-118, doi:10.1016/j.artint.2015.03.004.
+      Our finite Lean proof was constructed independently using nine progression
+      constraints and integer arithmetic. This reference records the known
+      finite result and an elementary proof. The stronger discrepancy-two SAT
+      result of this paper is not formalized here. No mathematical novelty is
+      claimed for the finite result or the accompanying elementary reductions.
+    author_endorsement: not-contacted
+related_formalizations:
+  - title: "Formal Conjectures: Erdős Problem 67"
+    authors: ["The Formal Conjectures Authors"]
+    id: "https://github.com/google-deepmind/formal-conjectures/blob/87d97fa7626c7b39ee4c8565d3acfa5a048d6cae/FormalConjectures/ErdosProblems/67.lean"
+    relationship: other
+    note: >-
+      Source of the user-supplied real subtype and complex sphere targets.
+      Both full proof declarations contain sorry at that revision. No proof
+      was imported from that development; this repository is the substantive
+      implementation of the compared partial results.
+status:
+  scope: >-
+    Six theorems listed in comparator.json and explained in README.md.
+    Full real and complex discrepancy remain unproved proposition definitions.
+    Equivalences do not assert their sides, and complex-to-real implications
+    retain the complex theorem as an explicit hypothesis. Only threshold 1
+    is proved unconditionally here.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+automation:
+  methods:
+    - method: agent
+      models: ["GPT-6"]
+      framework: "Codex with Erdős Research Orchestrator"
+      tool_setup: >-
+        AI-assisted Lean proof construction, compiler feedback, independent AI
+        fidelity audit, exact finite enumeration, module migration, and Palomar
+        packaging. Proofs use Mathlib tactics, omega and ordinary decide;
+        native_decide is not used.
+  notes: >-
+    Six deliberate sorry holes occur only in the independent Challenge.
+    Solution imports proved declarations with the three standard axiom
+    dependencies. Enumeration in research is separate supporting computation,
+    not an axiom or an input to the Lean proof.
+fidelity:
+  divergences: >-
+    Partial formalization associated with Erdős 67, not the full theorem.
+    Integer-sign and real-subtype formulations are connected by a proved
+    equivalence. The complex variant is an explicit hypothesis in two proved
+    implications. No multiplicativity assumption is silently added.
+review:
+  status: agent-reviewed
+  reviewers: []
+  notes: >-
+    Independent AI mathematical and source-fidelity audits; local Lean builds
+    and axiom checks passed for the substantive development. No human expert
+    review or source-author endorsement. The complete Palomar workflow is
+    provided in CI; its mechanical report at the submitted commit supplies
+    the authoritative preflight evidence, separate from this self-report.
+acknowledgements: "Lean, Mathlib, Comparator, NanoDa, and Palomar tooling."

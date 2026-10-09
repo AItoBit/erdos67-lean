@@ -16,7 +16,7 @@ jobs:
       - uses: leanprover/lean-action@v1
         with:
           build: "true"
-          build-args: "Erdos67 Erdos67.Compactness Erdos67.FiniteBound"
+          build-args: "Erdos67 Erdos67.Compactness Erdos67.FiniteBound Erdos67.Complex Challenge Solution"
           test: "false"
           lint: "false"
           use-mathlib-cache: "true"

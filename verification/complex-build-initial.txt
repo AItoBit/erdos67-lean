@@ -1,0 +1,56 @@
+✔ [1426/1534] Built Mathlib.Order.CompleteLattice.Chain (11s)
+✔ [1506/1534] Built Mathlib.Order.OrderIsoNat (14s)
+⚠ [1530/1534] Built Erdos67 (15s)
+warning: Erdos67.lean:5:0: 'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+✔ [1532/1534] Built Erdos67.Compactness (15s)
+✖ [1533/1534] Building Erdos67.Complex (15s)
+trace: .> LEAN_PATH=C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\Cli\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\batteries\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\Qq\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\aesop\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\proofwidgets\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\importGraph\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\LeanSearchClient\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\plausible\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.lake\packages\mathlib\.lake\build\lib\lean;C:\Users\Usuario\Documents\ChatGPT\palomar\.palomar\erdos67-project\.lake\build\lib\lean c:\Users\Usuario\.elan\toolchains\leanprover--lean4---v4.35.0-rc2\bin\lean.exe C:\Users\Usuario\Documents\ChatGPT\palomar\.palomar\erdos67-project\Erdos67\Complex.lean -o C:\Users\Usuario\Documents\ChatGPT\palomar\.palomar\erdos67-project\.lake\build\lib\lean\Erdos67\Complex.olean -i C:\Users\Usuario\Documents\ChatGPT\palomar\.palomar\erdos67-project\.lake\build\lib\lean\Erdos67\Complex.ilean -c C:\Users\Usuario\Documents\ChatGPT\palomar\.palomar\erdos67-project\.lake\build\ir\Erdos67\Complex.c --setup C:\Users\Usuario\Documents\ChatGPT\palomar\.palomar\erdos67-project\.lake\build\ir\Erdos67\Complex.setup.json --json
+error: Erdos67/Complex.lean:38:20: unsolved goals
+case inl
+h : ComplexDiscrepancyStatement
+f : ℕ → ↥{-1, 1}
+C : ℝ
+hC : 0 < C
+n : ℕ
+hn : ↑(f n) = -1
+⊢ ‖1‖ = 1
+
+case inr
+h : ComplexDiscrepancyStatement
+f : ℕ → ↥{-1, 1}
+C : ℝ
+hC : 0 < C
+n : ℕ
+hn : ↑(f n) = 1
+⊢ ‖1‖ = 1
+warning: Erdos67/Complex.lean:41:39: This simp argument is unused:
+  Metric.mem_sphere
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dist_zero_right, hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos67/Complex.lean:41:58: This simp argument is unused:
+  dist_zero_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Metric.mem_sphere, hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Erdos67/Complex.lean:64:46: unsolved goals
+case inr
+h : DiscrepancyStatement
+f : ℕ → ↥{-1, 1}
+C : ℝ
+hC : 0 < C
+g : ℕ → ℤ := fun n => if ↑(f n) = -1 then -1 else 1
+hg : SignSequence g
+n : ℕ
+hn : ↑(f n) = 1
+⊢ 1 = -1 → -1 = 1
+✔ [1534/1534] Built Erdos67.FiniteBound (17s)
+Some required targets logged failures:
+- Erdos67.Complex
+error: build failed
