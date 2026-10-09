@@ -16,9 +16,9 @@ jobs:
       - uses: leanprover/lean-action@v1
         with:
           build: "true"
-          build-args: "Erdos67 Erdos67.Compactness"
+          build-args: "Erdos67 Erdos67.Compactness Erdos67.FiniteBound"
           test: "false"
           lint: "false"
           use-mathlib-cache: "true"
-      - name: Inspect threshold equivalence axioms
+      - name: Inspect proved theorem axioms
         run: lake env lean CheckAxioms.lean

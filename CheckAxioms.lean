@@ -1,6 +1,8 @@
 module
 
 import Erdos67.Compactness
+import Erdos67.FiniteBound
 
 #print axioms Erdos67.discrepancyStatement_iff_naturalThresholdStatement
 #print axioms Erdos67.discrepancyStatement_iff_uniformFiniteStatement
+#print axioms Erdos67.discrepancy_one_at_twelve

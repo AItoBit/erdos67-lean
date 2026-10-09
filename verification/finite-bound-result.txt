@@ -1,0 +1,17 @@
+Finite-bound local verification
+
+Pinned environment: work/formal-conjectures, Lean 4.33.1, project Mathlib.
+LEAN_PATH additionally contains work/compactness-check, whose Erdos67.olean was compiled from the unchanged root Erdos67.lean.
+
+Actual module command:
+lake env lean ../erdos67-research/Erdos67/FiniteBound.lean
+Result: exit 0, no output, no warnings.
+
+Axiom audit command:
+lake env lean ../compactness-check/FiniteBoundCheck.lean
+FiniteBoundCheck.lean is the exact contents of Erdos67/FiniteBound.lean followed by #print axioms Erdos67.discrepancy_one_at_twelve.
+Result: exit 0.
+Output retained in finite-bound-axioms.log:
+'Erdos67.discrepancy_one_at_twelve' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+This theorem establishes discrepancy greater than one using indices at most twelve. It does not establish unbounded discrepancy.

@@ -1,0 +1,1 @@
+'Erdos67.discrepancy_one_at_twelve' depends on axioms: [propext, Classical.choice, Quot.sound]

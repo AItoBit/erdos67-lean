@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-09",
+  "objective": "A complete Lean proof of Erdos67.DiscrepancyStatement, followed by eligible Palomar submission",
+  "full_target_proved": false,
+  "palomar_eligible": false,
+  "status_meanings": {
+    "kernel_verified": "Lean compilation and observed axiom inspection passed; see audit field",
+    "exhaustive_computation": "Exact finite computation, not a Lean proof",
+    "literature_result": "A theorem in the cited mathematical literature, not automatically available in Lean",
+    "external_candidate_unverified": "Located proof source; its full dependency closure and applicability have not passed our checks",
+    "conditional_mathematical_argument": "An argument conditional on specified inputs, not yet implemented or checked in Lean",
+    "unproved_obligation": "A precise required claim with no completed proof in this project",
+    "rejected_route": "This proposed inference does not establish the target"
+  },
+  "nodes": [
+    {
+      "id": "full_target",
+      "claim": "Every sign sequence has unbounded homogeneous arithmetic progression discrepancy",
+      "mathematical_status": "literature_result",
+      "lean_status": "unproved_obligation",
+      "declaration": "Erdos67.DiscrepancyStatement",
+      "source": "https://arxiv.org/html/1509.05363v6",
+      "audit": "Frozen source-fidelity audit passed; no full proof"
+    },
+    {
+      "id": "natural_threshold_equivalence",
+      "claim": "The positive real threshold target is equivalent to using all natural thresholds",
+      "status": "kernel_verified",
+      "declaration": "Erdos67.discrepancyStatement_iff_naturalThresholdStatement",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "audit": "Independent AI mathematical audit passed"
+    },
+    {
+      "id": "compactness_equivalence",
+      "claim": "The full target is equivalent to a finite horizon N for each bound B, uniform over every sign sequence",
+      "status": "kernel_verified",
+      "declaration": "Erdos67.discrepancyStatement_iff_uniformFiniteStatement",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "audit": "Independent AI mathematical audit passed",
+      "ci": "https://github.com/AItoBit/erdos67-lean/actions/runs/37915520112"
+    },
+    {
+      "id": "uniform_finite_target",
+      "claim": "For every B there exists N such that every sign sequence has discrepancy greater than B by endpoint N",
+      "status": "unproved_obligation",
+      "declaration": "Erdos67.UniformFiniteStatement",
+      "lesson": "The horizon must be independent of the sign sequence"
+    },
+    {
+      "id": "bound_one_length_twelve",
+      "claim": "Every sign assignment on 1 through 12 has a homogeneous progression sum with absolute value greater than 1",
+      "status": "kernel_verified",
+      "declaration": "Erdos67.discrepancy_one_at_twelve",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "audit": "Independent AI mathematical audit passed; actual module and explicit axiom check exited 0",
+      "verification": "verification/finite-bound-result.txt",
+      "evidence": "research/bound-one-results.json",
+      "reproduction": "python research/exhaustive_bound_one.py",
+      "coverage": "All 4096 assignments; direct enumeration agrees with an independent prefix-pruning algorithm"
+    },
+    {
+      "id": "bound_one_length_eleven",
+      "claim": "Exactly four sign assignments on 1 through 11 have every homogeneous progression sum bounded by 1",
+      "status": "exhaustive_computation",
+      "evidence": "research/bound-one-results.json",
+      "coverage": "All 2048 assignments; both exact algorithms agree"
+    },
+    {
+      "id": "fourier_reduction",
+      "claim": "A bounded-discrepancy counterexample yields a stochastic completely multiplicative function with uniformly bounded partial-sum second moments",
+      "mathematical_status": "literature_result",
+      "lean_status": "unproved_obligation",
+      "source": "https://arxiv.org/html/1509.05363v6#S2",
+      "available_foundations": ["finite character orthogonality", "Prokhorov compactness"],
+      "missing": "The specific Fourier construction, bounds, and limit transfer"
+    },
+    {
+      "id": "elliott_input",
+      "claim": "Tao's logarithmically averaged nonasymptotic Elliott estimate, Theorem 1.3",
+      "mathematical_status": "literature_result",
+      "lean_status": "unproved_obligation",
+      "source": "https://arxiv.org/abs/1509.05422",
+      "missing": "A checked implementation of the precise correlation estimate and its analytic prerequisites"
+    },
+    {
+      "id": "ordinary_elliott_candidate",
+      "claim": "Fixed-function ordinary two-point cancellation under asymptotic uniform nonpretentiousness",
+      "status": "external_candidate_unverified",
+      "repository": "https://github.com/openai/math",
+      "commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+      "solution_module": "OAI.NumberTheory.OrdinaryCorrelations.Elliott.Main",
+      "theorem": "OAI.OrdinaryCorrelations.binary_corrected_elliott",
+      "source": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/NumberTheory/OrdinaryCorrelations/Elliott/BinaryCorrectedElliott.lean",
+      "audit": "Actual proof chain inspected, but no independent build or full dependency axiom inspection; not imported into this project",
+      "limitation": "Fixed-function asymptotic quantifiers do not directly supply Tao's uniform finite-scale estimate"
+    },
+    {
+      "id": "nonpretentious_event_null",
+      "claim": "The ordinary Elliott candidate, if verified, forces probability zero of uniformly nonpretentious samples under a uniform partial-sum second-moment bound",
+      "status": "conditional_mathematical_argument",
+      "proof_outline": "Expand the mean square of length-H blocks; correlation cancellation gives limit H on the event; Fatou bounds H times its probability by 4C^2 for every H",
+      "audit": "Separate mathematical bridge review; not a Lean theorem",
+      "limitation": "Negated nonpretentiousness gives sample-dependent infinitely many good scales, not uniform good-scale probability bounds"
+    },
+    {
+      "id": "pretentious_reduction",
+      "claim": "Bounded stochastic second moments force the structure in Tao Proposition 1.11",
+      "mathematical_status": "literature_result",
+      "lean_status": "unproved_obligation",
+      "source": "https://arxiv.org/html/1509.05363v6#S3"
+    },
+    {
+      "id": "structured_contradiction",
+      "claim": "The structured stochastic case also has unbounded second moments",
+      "mathematical_status": "literature_result",
+      "lean_status": "unproved_obligation",
+      "source": "https://arxiv.org/html/1509.05363v6#S4"
+    },
+    {
+      "id": "all_quadratic_certificates",
+      "claim": "For every B, construct or prove existence of a valid homogeneous-progression quadratic certificate forcing discrepancy greater than B",
+      "status": "unproved_obligation",
+      "source": "https://arxiv.org/html/1509.05363v6",
+      "audit": "Independent audit of the finite sufficient criterion passed; no universal certificate family was established"
+    },
+    {
+      "id": "finite_to_infinite_extrapolation",
+      "claim": "Checking a finite list of discrepancy thresholds proves every threshold",
+      "status": "rejected_route",
+      "lesson": "Finite threshold verification does not discharge the universal bound quantifier"
+    },
+    {
+      "id": "unproved_analytic_import",
+      "claim": "Assuming the missing Elliott theorem as a new axiom yields a complete formal proof",
+      "status": "rejected_route",
+      "lesson": "A new mathematical axiom leaves the proof obligation unproved and fails the required axiom audit"
+    },
+    {
+      "id": "translated_progression_transfer",
+      "claim": "A discrepancy theorem for arbitrary translated progressions directly proves the homogeneous-progression theorem",
+      "status": "rejected_route",
+      "lesson": "General translated progressions are not homogeneous; their starting point need not be divisible by the step"
+    }
+  ],
+  "edges": [
+    {"from": "natural_threshold_equivalence", "to": "compactness_equivalence", "relation": "uses", "direction_note": "The destination uses the source"},
+    {"from": "compactness_equivalence", "to": "full_target", "relation": "supports"},
+    {"from": "uniform_finite_target", "to": "full_target", "relation": "supports"},
+    {"from": "bound_one_length_twelve", "to": "uniform_finite_target", "relation": "supports", "scope": "B=1 only"},
+    {"from": "bound_one_length_eleven", "to": "bound_one_length_twelve", "relation": "supports", "scope": "Finite horizon sharpness at B=1"},
+    {"from": "elliott_input", "to": "pretentious_reduction", "relation": "uses", "direction_note": "The destination uses the source"},
+    {"from": "pretentious_reduction", "to": "structured_contradiction", "relation": "uses", "direction_note": "The destination uses the source"},
+    {"from": "fourier_reduction", "to": "full_target", "relation": "supports", "route": "analytic"},
+    {"from": "structured_contradiction", "to": "full_target", "relation": "supports", "route": "analytic"},
+    {"from": "all_quadratic_certificates", "to": "uniform_finite_target", "relation": "supports", "route": "certificates"},
+    {"from": "ordinary_elliott_candidate", "to": "nonpretentious_event_null", "relation": "supports", "scope": "Conditional on verification and the stochastic boundedness assumptions"}
+  ],
+  "frontier": [
+    {"node": "ordinary_elliott_candidate", "next_action": "Audit dependency closure and finite quantitative lemmas; a fixed-function asymptotic theorem alone leaves the scale-uniformity gap", "role": "New analytic reuse candidate, not a verified input"},
+    {"node": "elliott_input", "next_action": "Search for a precise reusable formal proof, otherwise construct its prerequisites", "role": "Central analytic dependency"},
+    {"node": "all_quadratic_certificates", "next_action": "Find a justified universal family or existence argument", "role": "Alternative full-proof route"}
+  ]
+}
